@@ -16,7 +16,7 @@ public class CentroDistribucion {
     // Nec. 2 y 7: código -> Paquete. Búsqueda y validación de unicidad O(1) promedio.
     private final Map<String, Paquete> paquetesPorCodigo = new HashMap<>();
     // Nec. 1: pendientes por orden de llegada (FIFO).
-    private final Queue<Paquete> colaLlegada = new LinkedList<>();
+    private final Queue<Paquete> colaLlegada = new ArrayDeque<>();
     // Nec. 5: pendientes por prioridad (prioridad desc, tiempo asc, código asc).
     private final PriorityQueue<Paquete> colaPrioridad = new PriorityQueue<>(new ComparadorDespacho());
     // Nec. 3: municipios sin repetir.
