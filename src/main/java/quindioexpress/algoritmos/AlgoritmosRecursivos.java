@@ -18,8 +18,13 @@ public final class AlgoritmosRecursivos {
     private static double pesoTotal(List<Paquete> paquetes, String municipio, int i) {
         if (i == paquetes.size()) return 0.0;
         Paquete p = paquetes.get(i);
-        double actual = p.getDestino().equalsIgnoreCase(municipio) ? p.getPeso() : 0.0;
-        return actual + pesoTotal(paquetes, municipio, i + 1);
+        double actual = 0.0;
+
+        if (p.getDestino().equalsIgnoreCase(municipio)) {
+            actual = p.getPeso();
+        } else {
+            actual = 0.0;
+        }return actual + pesoTotal(paquetes, municipio, i + 1);
     }
 
     public static int contarPrioridadMinima(List<Paquete> paquetes, int minima) {
@@ -38,7 +43,18 @@ public final class AlgoritmosRecursivos {
 
     /** Misma lógica sobre un arreglo de prioridades (ejemplo del enunciado: 5,2,4,1,5,3,4 con mínimo 4 -> 4). */
     public static int contarPrioridadMinima(int[] prioridades, int minima, int i) {
-        if (i == prioridades.length) return 0;
-        return (prioridades[i] >= minima ? 1 : 0) + contarPrioridadMinima(prioridades, minima, i + 1);
+        if (i == prioridades.length) {
+            return 0;
+        }
+        int actual = 0;
+        if (prioridades[i] >= minima) {
+            actual = 1;
+        } else {
+            actual = 0;
+        }
+        return actual + contarPrioridadMinima(prioridades, minima, i + 1);
     }
+
 }
+
+
