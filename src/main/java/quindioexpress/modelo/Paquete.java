@@ -53,13 +53,33 @@ public class Paquete implements Comparable<Paquete> {
         }
     }
 
-    public String getCodigo() { return codigo; }
-    public String getDestino() { return destino; }
-    public double getPeso() { return peso; }
-    public int getPrioridad() { return prioridad; }
-    public int getTiempoEstimado() { return tiempoEstimado; }
-    public EstadoPaquete getEstado() { return estado; }
-    public Repartidor getRepartidor() { return repartidor; }
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public int getPrioridad() {
+        return prioridad;
+    }
+
+    public int getTiempoEstimado() {
+        return tiempoEstimado;
+    }
+
+    public EstadoPaquete getEstado() {
+        return estado;
+    }
+
+    public Repartidor getRepartidor() {
+        return repartidor;
+    }
 
     public void asignar(Repartidor r) {
         this.repartidor = r;
@@ -78,7 +98,8 @@ public class Paquete implements Comparable<Paquete> {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Paquete paquete = (Paquete) o;
         return Objects.equals(codigo, paquete.codigo);
     }
